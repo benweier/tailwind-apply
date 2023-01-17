@@ -1,0 +1,47 @@
+{
+  "name": "tailwind-apply",
+  "version": "1.0.0",
+  "description": "Apply-Your-Own theme system with Tailwind CSS",
+  "main": "index.js",
+  "files": [
+    "index.js",
+    "index.d.ts",
+    "postcss.js",
+    "postcss.d.ts"
+  ],
+  "engines": {
+    "node": ">=16"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": {
+    "name": "Ben Weier",
+    "email": "ben.weier@gmail.com",
+    "url": "https://benweier.dev"
+  },
+  "homepage": "https://github.com/benweier/tailwind-apply",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/benweier/tailwind-apply.git"
+  },
+  "bugs": {
+    "url": "https://github.com/benweier/tailwind-apply/issues"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "glob": "^8.1.0",
+    "postcss-js": "^4.0.0"
+  },
+  "peerDependencies": {
+    "postcss": "^8",
+    "tailwindcss": "^3"
+  },
+  "devDependencies": {
+    "eslint": "^8.32.0",
+    "eslint-config-prettier": "^8.6.0",
+    "eslint-plugin-import": "^2.27.4",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-prettier": "^4.2.1"
+  }
+}
