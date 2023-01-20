@@ -6,14 +6,18 @@ const postcssJs = require('postcss-js')
 const plugin = require('tailwindcss/plugin')
 
 const addSourcesFromPath = (dir, cb) => {
-  const files = glob.sync(dir)
+  const files = glob.sync(dir, { ignore: '**/*.{js,json}' })
 
   files.forEach((file) => {
-    const styles = fs.readFileSync(file, { encoding: 'utf8', flag: 'r' })
-    const root = postcss.parse(styles)
-    const jss = postcssJs.objectify(root)
+    try {
+      const styles = fs.readFileSync(file, { encoding: 'utf8', flag: 'r' })
+      const root = postcss.parse(styles)
+      const jss = postcssJs.objectify(root)
 
-    cb(jss)
+      cb(jss)
+    } catch (err) {
+      console.error(err)
+    }
   })
 }
 
@@ -25,14 +29,10 @@ module.exports = plugin.withOptions(
     const variants = path.join(styles, 'variants', pattern)
 
     return ({ addBase, addComponents, addUtilities, addVariant }) => {
-      try {
-        addSourcesFromPath(base, addBase)
-        addSourcesFromPath(components, addComponents)
-        addSourcesFromPath(utilities, addUtilities)
-        addSourcesFromPath(variants, addVariant)
-      } catch (err) {
-        //
-      }
+      addSourcesFromPath(base, addBase)
+      addSourcesFromPath(components, addComponents)
+      addSourcesFromPath(utilities, addUtilities)
+      addSourcesFromPath(variants, addVariant)
     }
   },
 )
