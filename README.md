@@ -49,6 +49,36 @@ Default: `**/*.{css,scss,sass,less}`
 
 Set the glob pattern of the files in the `styles` folder.
 
+### Style Structure
+
+Custom styles authored in CSS files must be arranged into sub-folders named after the layer they target:
+
+- `base`
+- `components`
+- `utilities`
+
+Files outside of these folders won't be added to your TailwindCSS theme, but could be utilised to break down your CSS modules or define CSS variables available across the rest of your theme.
+
+```
+project
+├── src
+│   ├── components / etc
+│   └── index.tsx
+├── styles   <-- wherever you save your custom styles and matches the path given to the plugin `styles` option
+│   ├── base   <-- classes that get added to Tailwind's `base` layer
+│   │   └── headings.css
+│   ├── components   <-- classes that get added to Tailwind's `component` layer
+│   │   ├── button.css
+│   │   ├── input.css
+│   │   └── navigation.css
+│   └── utilities   <-- added to `utilities` layer
+│       └── content.js
+├── postcss.config.js
+└── tailwind.config.js
+```
+
+TailwindCSS plugins authored in JS can be located anywhere within your project folders since how they get imported into `tailwind.config.js` is up to you.
+
 #### Example
 
 ```js
