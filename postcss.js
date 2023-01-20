@@ -2,7 +2,7 @@ const path = require('node:path')
 const glob = require('glob')
 
 /** @type {import('postcss').PluginCreator} */
-module.exports = ({ styles = path.join(process.cwd(), 'styles'), pattern = '**/*.{css,sass,scss,less}' } = {}) => {
+module.exports = ({ styles = path.join(process.cwd(), 'styles'), pattern = '**/*.{css,sass,scss,less,js}' } = {}) => {
   return {
     postcssPlugin: 'tailwind-apply',
     plugins: [
