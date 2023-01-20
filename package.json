@@ -7,7 +7,16 @@
     "index.js",
     "index.d.ts",
     "postcss.js",
-    "postcss.d.ts"
+    "postcss.d.ts",
+    "README.md"
+  ],
+  "keywords": [
+    "tailwind",
+    "tailwindcss",
+    "theme",
+    "apply",
+    "extend",
+    "plugin"
   ],
   "engines": {
     "node": ">=16"
